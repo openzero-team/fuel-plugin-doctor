@@ -16,7 +16,7 @@ authors: ['dongwenjuan ZTE']
 homepage: 'https://github.com/opnfv/fuel-plugin-doctor'
 # Specify a group which your plugin implements, possible options:
 # network, storage, storage::cinder, storage::glance, hypervisor
-groups: [controller]
+groups: []
 # Change `false` to `true` if the plugin can be installed in the environment
 # after the deployment.
 is_hotpluggable: true
