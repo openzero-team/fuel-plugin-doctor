@@ -26,12 +26,12 @@ None.
 Installation Guide
 ==================
 
-Promise plugin installation
+Doctor plugin installation
 ----------------------------------------
 
 1. Clone the fuel-plugin-doctor repo from github:
 
-        git clone https://github.com/opnfv/fuel-plugin-doctor.git
+        git clone https://github.com/openzero-zte/fuel-plugin-doctor.git
 
 2. Install the Fuel Plugin Builder:
 
@@ -42,7 +42,7 @@ Promise plugin installation
         fpb --build fuel-plugin-doctor/
 
 4. The *fuel-plugin-doctor-x.x.x.fp* plugin package will be created in the plugin folder.
-  
+
 5. Move this file to the Fuel Master node with secure copy (scp):
 
         scp fuel-plugin-doctor-x.x.x.fp root@<the_Fuel_Master_node_IP address>:/tmp
@@ -63,4 +63,3 @@ Promise plugin installation
 
 ## License
   [Apache-2.0](LICENSE)
-
