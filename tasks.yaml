@@ -1,0 +1,6 @@
+- role: ['controller']
+  stage: post_deployment
+  type: shell
+  parameters:
+    cmd: bash deploy.sh
+    timeout: 60
