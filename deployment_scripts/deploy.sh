@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Fuel Plugin - OPNFV Resource Managment (Doctor)
+# Fuel Plugin - OPNFV Fault Managment (Doctor)
 #
 # https://wiki.opnfv.org/display/doctor
 #
