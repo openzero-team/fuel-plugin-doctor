@@ -55,9 +55,10 @@ Doctor plugin installation
 
         fuel plugins
 
-        id | name                | version | package_version
-        ---|---------------------|---------|----------------
-        1  | fuel-plugin-doctor  | 1.0.0   | 1.0.0
+        id | name                            | version | package_version | releases           
+        ---+---------------------------------+---------+-----------------+--------------------
+        1  | fuel-plugin-doctor              | 1.0.0   | 4.0.0           | ubuntu (mitaka-9.0)
+
 
 8. Plugin is ready to use and can be enabled on the Settings tab of the Fuel web UI.
 
