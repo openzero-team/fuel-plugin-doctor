@@ -41,15 +41,15 @@ Doctor plugin installation
 
         fpb --build fuel-plugin-doctor/
 
-4. The *fuel-plugin-doctor-x.x.x.fp* plugin package will be created in the plugin folder.
+4. The *fuel-plugin-doctor-x.x-x.rpm* plugin package will be created in the plugin folder.
 
 5. Move this file to the Fuel Master node with secure copy (scp):
 
-        scp fuel-plugin-doctor-x.x.x.fp root@<the_Fuel_Master_node_IP address>:/tmp
+        scp fuel-plugin-doctor-x.x-x.rpm root@<the_Fuel_Master_node_IP address>:/tmp
 
 6. While logged in Fuel Master install the Doctor plugin:
 
-        fuel plugins --install /tmp/fuel-plugin-doctor-x.x.x.fp
+        fuel plugins --install /tmp/fuel-plugin-doctor-x.x-x.rpm
 
 7. Check if the plugin was installed successfully:
 
@@ -57,7 +57,7 @@ Doctor plugin installation
 
         id | name                | version | package_version
         ---|---------------------|---------|----------------
-        1  | fuel-plugin-doctor  | 0.0.1   | 0.0.1
+        1  | fuel-plugin-doctor  | 1.0.0   | 1.0.0
 
 8. Plugin is ready to use and can be enabled on the Settings tab of the Fuel web UI.
 
