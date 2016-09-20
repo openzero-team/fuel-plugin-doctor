@@ -55,7 +55,7 @@ Doctor plugin installation
 
         fuel plugins
 
-        id | name                            | version | package_version | releases           
+        id | name                            | version | package_version | releases
         ---+---------------------------------+---------+-----------------+--------------------
         1  | fuel-plugin-doctor              | 1.0.0   | 4.0.0           | ubuntu (mitaka-9.0)
 
