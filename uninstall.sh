@@ -1,24 +1,37 @@
 #!/bin/bash
 set -eux
 
+cat > restore_doctor_conf.sh << 'END_TXT'
+#!/bin/bash
+set -eux
+
 NOVA_CONF_DIR=/etc/nova
 CEILOMETER_CONF_DIR=/etc/ceilometer
 
-node_id=$(fuel node |grep controller | awk '{print "node-"$1}')
-for i in $node_id;do
-    if [ -e $CEILOMETER_CONF_DIR/event_pipeline.yaml.bak ]; then
-        rm -f $CEILOMETER_CONF_DIR/event_pipeline.yaml
-        cp $CEILOMETER_CONF_DIR/event_pipeline.yaml.bak $CEILOMETER_CONF_DIR/event_pipeline.yaml
-        rm -f $CEILOMETER_CONF_DIR/event_pipeline.yaml.bak
-        service ceilometer-agent-notification restart
-    fi
+if [ -e $CEILOMETER_CONF_DIR/event_pipeline.yaml.bak ]; then
+    rm -f $CEILOMETER_CONF_DIR/event_pipeline.yaml
+    cp $CEILOMETER_CONF_DIR/event_pipeline.yaml.bak $CEILOMETER_CONF_DIR/event_pipeline.yaml
+    rm -f $CEILOMETER_CONF_DIR/event_pipeline.yaml.bak
+    service ceilometer-agent-notification restart
+fi
 
-    if [ -e $NOVA_CONF_DIR/nova.conf.bak ]; then
-        rm -f $NOVA_CONF_DIR/nova.conf
-        cp $NOVA_CONF_DIR/nova.conf.bak $NOVA_CONF_DIR/nova.conf
-        rm -f $NOVA_CONF_DIR/nova.conf.bak
-        service nova-api restart
-    fi
+if [ -e $NOVA_CONF_DIR/nova.conf.bak ]; then
+    rm -f $NOVA_CONF_DIR/nova.conf
+    cp $NOVA_CONF_DIR/nova.conf.bak $NOVA_CONF_DIR/nova.conf
+    rm -f $NOVA_CONF_DIR/nova.conf.bak
+    service nova-api restart
+ fi
+exit 0
+END_TXT
+
+chmod +x restore_doctor_conf.sh
+
+nodes=$(fuel node |grep controller | awk '{print "node-"$1}')
+for node in $nodes;do
+    scp restore_doctor_conf.sh "root@$node:"
+    ssh "root@$node" './restore_doctor_conf.sh'
+    sleep 2
+    ssh "root@$node" 'rm -f restore_doctor_conf.sh'
 done
 
-exit 0
+
